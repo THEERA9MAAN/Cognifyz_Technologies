@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Exploration Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #cbd9ee;
+            color: #2c3e50;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #919ca8;
+            color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #0c2035;
+            border-top: 4px solid #0c2035;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-section {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #0c2035;
+            border-bottom: 4px solid #0c2035;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="email"] {
+            padding: 0.9rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        input[type="email"]:invalid {
+            border-color: #e74c3c;
+        }
+
+        button {
+            padding: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #c3e6cb;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #f5c6cb;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#missions">Missions</a></li>
+            <li><a href="#discoveries">Discoveries</a></li>
+            <li><a href="#future">Future Plans</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1>🚀 Journey Beyond Earth</h1>
+            <p>
+                Space exploration represents humanity's greatest adventure into the unknown. From the first satellite 
+                launch to setting foot on the Moon, and now with rovers exploring Mars and telescopes peering into 
+                the depths of the cosmos, we continue to push the boundaries of what's possible. Each mission brings 
+                us closer to understanding our place in the universe and opens doors to possibilities we've only 
+                dreamed about.
+            </p>
+
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=500&fit=crop" 
+                     alt="Astronaut in space with Earth in background">
+            </div>
+
+            <p>
+                The future of space exploration is brighter than ever. With plans for lunar bases, manned missions 
+                to Mars, and the search for life beyond Earth, the next few decades promise groundbreaking discoveries 
+                that will reshape our understanding of the cosmos and our place within it.
+            </p>
+        </div>
+
+        <div class="form-section">
+            <h2>🌟 Join Our Space Newsletter</h2>
+            <form id="newsletterForm">
+                <label for="email">Get the latest space news and updates:</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email address" 
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                >
+                <div class="error-message" id="errorMessage">
+                    Please enter a valid email address
+                </div>
+                <button type="submit" id="submitBtn">Subscribe to Newsletter</button>
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you for subscribing! Check your email for confirmation.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('newsletterForm');
+        const emailInput = document.getElementById('email');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Real-time validation
+        emailInput.addEventListener('input', function() {
+            if (this.value && !validateEmail(this.value)) {
+                errorMessage.classList.add('show');
+            } else {
+                errorMessage.classList.remove('show');
+            }
+        });
+
+        // Form submission handler
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            
+            // Validate email
+            if (!validateEmail(email)) {
+                errorMessage.classList.add('show');
+                emailInput.focus();
+                return;
+            }
+
+            // Hide error message
+            errorMessage.classList.remove('show');
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+
+            // Simulate API call with timeout
+            setTimeout(function() {
+                // Show success message
+                successMessage.classList.add('show');
+                
+                // Reset form
+                form.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe to Newsletter';
+
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }, 1000);
+        });
+
+        // Clear success message when user starts typing again
+        emailInput.addEventListener('focus', function() {
+            successMessage.classList.remove('show');
+        });
+    </script>
+</body>
+</html>
